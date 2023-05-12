@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use Inertia\Inertia;
 use App\Models\User;    
+
 
 class UsuariosController extends Controller
 {
@@ -17,6 +19,7 @@ class UsuariosController extends Controller
         $usuarios = User::all();
         //dd($usuarios);
         return Inertia::render('Usuarios/Index',['usuarios' => $usuarios]);
+
     }
 
     /**
