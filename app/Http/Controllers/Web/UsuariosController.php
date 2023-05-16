@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use Inertia\Inertia;
 use App\Models\User;    
 
@@ -27,7 +26,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Usuarios/Registro');
     }
 
     /**
@@ -35,7 +34,23 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $campos = [
+            'name' => 'required|string|max:100',
+            'email' => 'required|email'
+        ];
+
+        $mensaje = [
+            'name.required' => 'El nombre es requerido.',
+            'email.required' => 'El correo electronico es requerido.'
+
+        ];
+        $this->validate($request, $campos, $mensaje);
+        $usuario = User::create($request->validate([
+            'name' => ['required'],
+            'email' => ['required','email'],
+        ]));
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -43,7 +58,7 @@ class UsuariosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Inertia::render('Usuarios/Editar');   
     }
 
     /**
@@ -67,6 +82,8 @@ class UsuariosController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $usuario = User::find($id);
+        $usuario->delete();
+        return redirect()->route('usuarios.index');
     }
 }
