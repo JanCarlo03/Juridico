@@ -54,10 +54,32 @@
 import Barra from "@/components/Barra.vue";
 import { Head } from '@inertiajs/vue3';
 import { useForm } from '@inertiajs/vue3';
+import Swal from 'sweetalert2';
 
 const form = useForm({})
  function eliminar(id){
-    form.delete(route('usuarios.destroy',id))
+    
+    
+
+    Swal.fire({
+        title: '¿Deseas eliminar el usuario?',
+        text: "No podras revertir esta acción",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, eliminar'
+    }).then((result) => {
+    if (result.isConfirmed) {
+        form.delete(route('usuarios.destroy',id))
+        Swal.fire(
+        'Eliminado',
+        'Se a eliminado correctamente.',
+        'success'
+        )
+    }
+    })
  }
 
 defineProps({ usuarios: Object })

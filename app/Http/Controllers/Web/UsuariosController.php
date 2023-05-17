@@ -58,7 +58,8 @@ class UsuariosController extends Controller
      */
     public function show(string $id)
     {
-        return Inertia::render('Usuarios/Editar');   
+        $usuario = User::find($id);
+        return Inertia::render('Usuarios/Editar',['usuario' => $usuario]);   
     }
 
     /**
@@ -74,7 +75,11 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $usuario = User::find($id);
+        $usuario->fill($request->all());
+        $usuario->save();
+        return redirect()->route('usuarios.index');
+        //dd($id);
     }
 
     /**

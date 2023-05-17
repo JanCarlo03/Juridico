@@ -24,7 +24,7 @@
                     </div>
                     <div class="mt-10">
                         <button type="submit" :disabled="form.processing" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 float-left">Crear</button>
-                        <a class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 float-right" href="{{ route('usuarios.index') }}"><i class="fa-solid fa-house"></i></a>
+                        <BotonHome></BotonHome>
                     </div>
                 </form>
             </div>
@@ -35,6 +35,8 @@
 <script setup>
 import Barra from "@/components/Barra.vue";
 import { useForm } from '@inertiajs/vue3';
+import BotonHome from '@/components/BotonHome.vue';
+
 
 const props = defineProps({ usuarios: Object })
 const form = useForm({
@@ -44,12 +46,12 @@ const form = useForm({
  function guardar(){
     form.post(route('usuarios.store'))
  }
-    const validateLetters = (fieldName) => {
-        const regex = /^[A-Za-z]+$/;
-        if (!regex.test(form    [fieldName])) {
-            form    [fieldName] = form  [fieldName].replace(/[^A-Za-z]/g, '');
-        }
-    };
+const validateLetters = (fieldName) => {
+    const regex = /^[A-Za-z]+$/;
+    if (!regex.test(form    [fieldName])) {
+        form    [fieldName] = form  [fieldName].replace(/[^A-Za-z]/g, '');
+    }
+};
     
 
 </script>
