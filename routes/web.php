@@ -37,5 +37,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('usuarios', UsuariosController::class)->names('usuarios');
 });
+Route::get('bd/{cadena}', [App\Http\Controllers\LoginController::class, 'bd'])->name('bd');
 
 require __DIR__.'/auth.php';

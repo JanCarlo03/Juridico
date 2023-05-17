@@ -1,0 +1,1 @@
+Illuminate\Support\Facades\Crypt::encryptString('al221910462@gmail.com|2023-12-31 13:00:00');
