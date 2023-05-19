@@ -30,4 +30,8 @@ class LoginController extends Controller
             return redirect()->route('usuarios.index');
         }
     }
+    public function logout() {
+        Auth::logout(); // Cierra la sesión del usuario
+        return redirect('/'); // Redirige al usuario a la página de inicio
+    }
 }

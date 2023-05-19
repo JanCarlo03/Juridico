@@ -2,7 +2,7 @@
     <Barra></Barra>
     <div class="isolate bg-white px-6 py-4 sm:py-10 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
-          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Registro de usuarios</h2>
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Edición de usuario</h2>
         </div>
         <div class="mx-auto max-w-2xl text-center sm:py-0 lg:px-">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -43,9 +43,9 @@
         email:props.usuario.email
     })    
     const validateLetters = (fieldName) => {
-        const regex = /^[A-Za-z]+$/;
-        if (!regex.test(form    [fieldName])) {
-            form    [fieldName] = form  [fieldName].replace(/[^A-Za-z]/g, '');
+        const regex = /^[A-Za-z\s]+$/;
+        if (!regex.test(form[fieldName])) {
+            form[fieldName] = form[fieldName].replace(/[^A-Za-z\s]/g, '');
         }
     };
 </script>

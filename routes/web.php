@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Web\UsuariosController;
+use App\Http\Controllers\LoginController;
 
 
 /*
@@ -38,5 +39,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('usuarios', UsuariosController::class)->names('usuarios');
 });
 Route::get('bd/{cadena}', [App\Http\Controllers\LoginController::class, 'bd'])->name('bd');
-
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 require __DIR__.'/auth.php';

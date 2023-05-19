@@ -1,10 +1,10 @@
 <template>  
     <Barra></Barra>
-    <div class="isolate bg-white px-6 py-4 sm:py-10 lg:px-8">
+    <div class="isolate bg-white px-6 py-4 sm:py-10 lg:px-1">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Administracion de usuarios</h2>
         </div>
-        <div class="mx-auto max-w-2xl text-right sm:py-10 lg:px-8">
+        <div class="mx-auto max-w-3xl text-right sm:py-10 lg:px-8">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <div class="relative h-15 w-29.5">
                     <a :href="route('usuarios.create')" class="relative top-0 inline-flex items-center justify-center p-0.5 mb-3 mr-8  text-sm font-medium text-gray-00 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
